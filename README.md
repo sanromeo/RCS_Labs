@@ -1,4 +1,4 @@
-# RCS_Labs
+# RCS Labwork №1
 Labwork №1 of subject "Reliability of computer systems"
 
 Requirements: Python 3.8
