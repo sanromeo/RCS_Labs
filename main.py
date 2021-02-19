@@ -24,16 +24,19 @@ dimension_of_sample = inp_sample[-1] / 10
 density_fi = [0]
 Probability_P = [1]
 index = 0
+new_count = 0
 i = 0
 
 for k in range(1, 11):
     count = 0
     while i < len(inp_sample) and inp_sample[i] <= k * dimension_of_sample + inp_sample[0]:
         count += 1
+        new_count += 1
         i += 1
     density_fi.append(count / (dimension_of_sample * len(inp_sample)))
-    Probability_P.append(count / len(
-        inp_sample))  # P = density_fi * range_sample = (count * range_sample) / ((range_sample * len(inp_sample))
+    Q = new_count / len(inp_sample)
+    Probability_P.append(1 - Q)
+   # Probability_P.append(count / len(inp_sample))  # P = density_fi * range_sample = (count * range_sample) / ((range_sample * len(inp_sample))
     if Probability_P[k - 1] > gamma > Probability_P[k]:
         iter_i = k
 d = (Probability_P[iter_i - 1] - gamma) / (Probability_P[iter_i - 1] - Probability_P[iter_i])
